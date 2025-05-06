@@ -1,0 +1,174 @@
+
+
+package array4;
+
+public class ProjectFour {
+
+	public static void main (String[]args) {
+//1
+int[] ages = {3, 9, 23, 64, 2, 8, 28, 93};
+		
+			int difference = ages[ages.length-1] - ages[0];
+			System.out.println(difference);
+		
+	
+//b	
+int [] ages2 = {3, 9, 23, 64, 2, 8, 28, 93, 2};
+
+ difference = ages2[ages2.length-1] - ages2[0];
+ 
+ System.out.println(difference);
+		
+ int sum = 0;
+		
+		for (int num : ages) {
+			sum += num;
+		}
+		
+		double average = (double) sum / ages.length;
+		System.out.println("The average is: " + average);
+//2		
+String[] names = {"Sam", "Tommy", "Tim","Sally","Buck","Bob"};
+double averageOfNames = calculateAverageCharacters(names);
+System.out.println(averageOfNames);
+
+
+//3 By name of array[array.length -1]
+//4 arrayName[0]
+
+//5
+int [] nameLengths = new int [names.length]; 
+
+for (int i =0; i < names.length; i++ ) {
+	
+	nameLengths[i] = names[i].length();
+}
+//6
+sum = 0;
+for (int i = 0; i < nameLengths.length; i++) {
+	sum += nameLengths[i];
+}
+	System.out.println(sum);
+
+	//7
+	String text = "abc"+ " ";
+    int repetitions = 5;
+    String result = repeatString(text, repetitions);
+    System.out.println(result);
+
+//8
+        String firstName = "John";
+        String lastName = "Doe";
+        String fullName = FullName(firstName, lastName);
+        System.out.println(fullName);    
+//9
+int[] arr = {25, 30, 45, 20};
+System.out.println(sumOver100(arr));
+//10
+double [] arr1 = {25.5, 30.3, 45.2, 20};
+System.out.println(avgNum(arr1));
+
+//12
+boolean hot = true;
+double money = 11.00;
+
+if (willBuyDrink(hot, money)) {
+    System.out.println("You will buy a drink.");
+} else {
+    System.out.println("You will not buy a drink.");
+//13
+}
+    String [] listofBooks  = {"Redwall, Mattimeo, High Rhulain, Salamandastron"};
+    
+    String findBook = "Mattimeo";
+    
+    boolean inStock = false;
+    
+    for (int i = 0; i < listofBooks.length; i++) {
+    	
+    	if (listofBooks[i] == findBook) {
+    		
+    System.out.println( "Available in library at aisle" + i);
+    inStock = true;
+    	}
+    	if (inStock == false) {
+    		System.out.println("Not available currently.");
+    	}
+    }
+} //end of main
+	//1b
+public static double calculateAverageCharacters(String[]names) {
+	double sum = 0;
+	
+	if (names == null || names.length == 0) {
+		return 0;
+	}
+	for (String num: names) {
+		sum += num.length();
+		}
+		return sum / names.length;
+}
+//7
+public static String repeatString(String str, int n) {
+    if (n < 0) {
+        throw new IllegalArgumentException("Number of repetitions cannot be negative.");
+    }
+    StringBuilder sb = new StringBuilder(str.length() +  n);
+    for (int i = 0; i < n; i++) {
+        sb.append(str);
+    }
+    return sb.toString() + "";
+}
+//8
+public static String FullName(String firstName, String lastName) {
+	return firstName + " " + lastName;
+}
+//9
+public static boolean sumOver100(int[] arr) {
+	int sum = 0;
+	for (int num: arr) {
+		sum += num;
+	}
+	return sum > 100;
+}
+//10
+public static double avgNum (double [] arr) { 
+double sum = 0; 
+for (double num: arr) {
+sum += num;
+}
+return sum / arr.length;
+}
+//11
+public boolean isAverageGreaterThan(double[] arr1, double[] arr2) {
+
+    if (arr1 == null || arr2 == null || arr1.length == 0 || arr2.length == 0) {
+        return false; // Or throw an exception, depending on desired behavior for invalid input
+    }
+
+    double sum1 = 0;
+    for (double num : arr1) {
+        sum1 += num;
+    }
+
+    double sum2 = 0;
+    for (double num : arr2) {
+        sum2 += num;
+    }
+
+    double avg1 = sum1 / arr1.length;
+    double avg2 = sum2 / arr2.length;
+
+    return avg1 > avg2;
+}
+
+
+//12
+public static boolean willBuyDrink (boolean isHotOutside, double moneyInPocket) {
+	if (isHotOutside && moneyInPocket > 10.50) {
+	return true;
+} else {
+	return false;
+}
+}
+}
